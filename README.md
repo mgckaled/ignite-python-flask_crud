@@ -34,7 +34,9 @@ Repositório do terceiro módulo da trilha Python 2024, desenvolvido pela Rocket
 
 Este módulo (Desenvolvimento de APIs com Flask) foi dedicado ao aprendizado de conceitos fundamentais da API, onde criamos nossa própria API utilizando o framework Flask em Python.
 
-> [Anotações](./.github/docs/notes.md) referentes ao módulo
+> [Anotações](./.github/docs/notes.md) referente ao módulo.
+>
+> Perguntas e respostas do [Quiz](./.github/docs/quizz.md).
 
 ## Tecnologias
 
