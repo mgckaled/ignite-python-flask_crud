@@ -10,6 +10,7 @@
     - [O que é API?](#o-que-é-api)
     - [O que são Métodos de Requisição HTTP?](#o-que-são-métodos-de-requisição-http)
   - [Códigos de Status de Respostas HTTP](#códigos-de-status-de-respostas-http)
+    - [CRUD](#crud)
     - [O que é Flask?](#o-que-é-flask)
 
 ## Conteúdo
@@ -87,7 +88,20 @@ Aqui estão alguns exemplos de códigos de status comuns:
 
 Para obter informações mais detalhadas sobre os códigos de status HTTP, você pode consultar a documentação oficial do Mozilla Developer Network (MDN). Aqui está o link para a seção relevante: [Documentação MDN sobre Códigos de Status HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
 
-> [retornar](#anotações-módulo-3---desenvolvimento-de-apis-com-flask)
+> [retornar](#anotações-módulo-3---desenvolvimento-de-apis-com-flask) para o topo da página
+
+### CRUD
+
+O Método CRUD em programação refere-se a um conjunto de operações básicas que podem ser realizadas em qualquer sistema de gerenciamento de banco de dados ou em uma aplicação que envolva a manipulação de dados. As quatro operações principais são:
+
+1. **Criação (Create):** Criar novos dados ou registros no sistema.
+2. **Leitura (Read):** Ler, recuperar ou visualizar dados existentes no sistema.
+3. **Atualização (Update):** Atualizar ou modificar dados existentes no sistema.
+4. **Exclusão (Delete):** Excluir dados ou registros existentes no sistema.
+
+Essas operações formam a base para muitas operações em sistemas de software, especialmente em aplicações que envolvem interações com bancos de dados.
+
+> [retornar](#anotações-módulo-3---desenvolvimento-de-apis-com-flask) para o topo da página
 
 ### O que é Flask?
 

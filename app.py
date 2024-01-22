@@ -1,22 +1,19 @@
-from flask import Flask
+from flask import Flask, request
+
+from models.task import Task
 
 app = Flask(__name__)
 
-
 @app.route("/")
-def hello_world():
-    """
-    Método que retorna a string "Hello, world!"
-    """
-    return "Hello, world!"
+def init_server():
+    return "Server is running"
 
 
-@app.route("/about")
-def about():
-    """
-    Método que retorna a string "Página Sobre"
-    """
-    return "Página Sobre"
+@app.route("/tasks", methods=["POST"])
+def create_task():
+    data = request.get_json()
+    print(data)
+    return "test"
 
 
 if __name__ == "__main__":
