@@ -99,5 +99,29 @@ def update_task(id):
     return jsonify({"message": "Tarefa atualizada com sucesso"})
 
 
+@app.route("/tasks/<uuid:id>", methods=["DELETE"])
+def delete_task(id):
+    """
+    Rota para excluir uma tarefa existente.
+
+    Args:
+        id (uuid): O identificador único (UUID) da tarefa a ser excluída.
+
+    Returns:
+        jsonify: Resposta JSON indicando se a tarefa foi excluída com sucesso ou uma mensagem de erro se não for encontrada.
+    """
+    task = None
+    for t in tasks:
+        if str(t.id) == str(id):
+            task = t
+            break
+
+    if not task:
+        return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
+
+    tasks.remove(task)
+    return jsonify({"message": "Tarefa deletada com sucesso"})
+
+
 if __name__ == "__main__":
     app.run(debug=True)

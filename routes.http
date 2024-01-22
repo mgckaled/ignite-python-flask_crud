@@ -7,12 +7,12 @@ Content-Type: application/json
 
 {
   "title": "Estudar",
-  "description": "Estudar Matemática"
+  "description": "Estudar História"
 }
 
 HTTP/1.1 200  - OK
 server: Werkzeug/3.0.1 Python/3.11.5
-date: Mon, 22 Jan 2024 22:33:57 GMT
+date: Mon, 22 Jan 2024 22:55:30 GMT
 content-type: application/json
 content-length: 50
 connection: close
@@ -22,32 +22,42 @@ GET {{port_url}}/tasks
 
 HTTP/1.1 200  - OK
 server: Werkzeug/3.0.1 Python/3.11.5
-date: Mon, 22 Jan 2024 22:34:02 GMT
+date: Mon, 22 Jan 2024 22:56:35 GMT
 content-type: application/json
-content-length: 204
+content-length: 362
 connection: close
 ###
 # return task by id
-GET {{port_url}}/tasks/1388b033-10af-4c4d-872b-561496d94586
+GET {{port_url}}/tasks/59f3e7fd-6b38-4426-bc01-3787361a937a
 
 HTTP/1.1 200  - OK
 server: Werkzeug/3.0.1 Python/3.11.5
-date: Mon, 22 Jan 2024 22:36:02 GMT
+date: Mon, 22 Jan 2024 22:56:04 GMT
 content-type: application/json
-content-length: 139
+content-length: 136
 connection: close
 ###
-PUT {{port_url}}/tasks/1388b033-10af-4c4d-872b-561496d94586
+PUT {{port_url}}/tasks/59f3e7fd-6b38-4426-bc01-3787361a937a
 Content-Type: application/json
 
 {
   "title": "Estudar",
-  "description": "Estudar Portugues 2"
+  "description": "Estudar História",
+  "completed": true
 }
 
-HTTP/1.1 404  - NOT FOUND
+HTTP/1.1 200  - OK
 server: Werkzeug/3.0.1 Python/3.11.5
-date: Mon, 22 Jan 2024 22:40:48 GMT
+date: Mon, 22 Jan 2024 22:55:58 GMT
 content-type: application/json
-content-length: 68
+content-length: 49
+connection: close
+###
+DELETE {{port_url}}/tasks/59f3e7fd-6b38-4426-bc01-3787361a937a
+
+HTTP/1.1 200  - OK
+server: Werkzeug/3.0.1 Python/3.11.5
+date: Mon, 22 Jan 2024 22:56:28 GMT
+content-type: application/json
+content-length: 47
 connection: close
