@@ -1,19 +1,21 @@
+import uuid
+
+
 class Task:
     """
     Representa uma tarefa com atributos como identificador, título, descrição e status de conclusão.
     """
 
-    def __init__(self, id, title, description, completed=False) -> None:
+    def __init__(self, title, description, completed=False) -> None:
         """
         Inicializa uma nova instância da classe Task.
 
         Args:
-            id (int): O identificador único da tarefa.
             title (str): O título da tarefa.
             description (str): A descrição da tarefa.
             completed (bool, optional): Indica se a tarefa está concluída. Padrão é False.
         """
-        self.id = id
+        self.id = str(uuid.uuid4())
         self.title = title
         self.description = description
         self.completed = completed

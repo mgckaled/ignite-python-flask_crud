@@ -1,3 +1,5 @@
+import uuid
+
 from flask import Flask, jsonify, request
 
 from models.task import Task
@@ -5,7 +7,6 @@ from models.task import Task
 app = Flask(__name__)
 
 tasks = []
-TASK_ID_CONTROL = 1
 
 
 @app.route("/")
@@ -27,14 +28,15 @@ def create_task():
     Returns:
         jsonify: Resposta JSON indicando se a tarefa foi criada com sucesso.
     """
-    global TASK_ID_CONTROL
     data = request.get_json()
     new_task = Task(
-        id=TASK_ID_CONTROL, title=data["title"], description=data.get("description", "")
+        title=data["title"],
+        description=data.get("description", ""),
+        completed=data.get("completed", False),
     )
-    TASK_ID_CONTROL += 1
+    new_task.id = str(uuid.uuid4())
     tasks.append(new_task)
-    print(tasks)  # Remova ou substitua por logging, se necessário.
+    print(tasks)
     return jsonify({"message": "Nova tarefa criada com sucesso"})
 
 
@@ -52,22 +54,49 @@ def get_tasks():
     return jsonify(output)
 
 
-@app.route("/tasks/<int:id>", methods=["GET"])
+@app.route(
+    "/tasks/<uuid:id>", methods=["GET"]
+)  # Altera para aceitar UUID como parâmetro
 def get_task(id):
     """
     Rota para obter detalhes de uma tarefa específica.
 
     Args:
-        id (int): O identificador único da tarefa.
+        id (uuid): O identificador único da tarefa.
 
     Returns:
         jsonify: Resposta JSON contendo detalhes da tarefa ou uma mensagem de erro se não for encontrada.
     """
     for t in tasks:
-        if t.id == id:
+        if str(t.id) == str(id):  # Converte ambos para string para comparar UUIDs
             return jsonify(t.to_dict())
 
     return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
+
+
+@app.route("/tasks/<uuid:id>", methods=["PUT"])
+def update_task(id):
+    """
+    Rota para atualizar uma tarefa existente.
+
+    Args:
+        id (uuid): O identificador único da tarefa a ser atualizada.
+
+    Returns:
+        jsonify: Resposta JSON indicando se a tarefa foi atualizada com sucesso ou uma mensagem de erro se não for encontrada.
+    """
+    task = None
+    for t in tasks:
+        if str(t.id) == str(id):
+            task = t
+    if task is None:
+        return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
+
+    data = request.get_json()
+    task.title = data["title"]
+    task.description = data["description"]
+    task.completed = data["completed"]
+    return jsonify({"message": "Tarefa atualizada com sucesso"})
 
 
 if __name__ == "__main__":
