@@ -1,17 +1,38 @@
 # variáveis
 @port_url = http://localhost:5000
 ###
+# create task
 POST {{port_url}}/tasks
 Content-Type: application/json
 
 {
-  "title": "Estudar",
-  "description": "Estudar Matemática"
+  "title": "Estudar p",
+  "description": "Estudar Portugues"
 }
 
 HTTP/1.1 200  - OK
 server: Werkzeug/3.0.1 Python/3.11.5
-date: Mon, 22 Jan 2024 13:22:08 GMT
+date: Mon, 22 Jan 2024 14:32:55 GMT
 content-type: application/json
 content-length: 50
+connection: close
+###
+# list tasks
+GET {{port_url}}/tasks
+
+HTTP/1.1 200  - OK
+server: Werkzeug/3.0.1 Python/3.11.5
+date: Mon, 22 Jan 2024 14:32:58 GMT
+content-type: application/json
+content-length: 413
+connection: close
+###
+# return task by id
+GET {{port_url}}/tasks/4
+
+HTTP/1.1 404  - NOT FOUND
+server: Werkzeug/3.0.1 Python/3.11.5
+date: Mon, 22 Jan 2024 14:33:14 GMT
+content-type: application/json
+content-length: 68
 connection: close

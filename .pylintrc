@@ -1,5 +1,7 @@
 # C0114 - missing-module-docstring
 # C0301 - line-too-long
+# R0903 - too-few-public-methods
+# W0603 - global-statement 
 
 [MESSAGES CONTROL]
-disable=C0114,C0301
+disable=C0114,C0301,R0903,W0603
