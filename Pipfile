@@ -5,12 +5,15 @@ name = "pypi"
 
 [scripts]
 lintpy = "pylint --rcfile=.pylintrc ."
+test = "pytest tests/test.py --verbose"
 
 [packages]
 flask = "*"
 flask-cors = "*"
 flask-sqlalchemy = "*"
 pylint = "*"
+pytest = "*"
+requests = "*"
 
 [dev-packages]
 
