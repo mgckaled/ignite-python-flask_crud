@@ -51,8 +51,10 @@ Este módulo (Desenvolvimento de APIs com Flask) foi dedicado ao aprendizado de 
 
 ### Bibliotecas Instaladas (Packages)
 
-- [`pylint`](https://pylint.pycqa.org/en/latest/index.html)
 - [`flask`](https://flask.palletsprojects.com/en/3.0.x/)
+- [`pylint`](https://pylint.pycqa.org/en/latest/index.html)
+- [`pytest`](https://docs.pytest.org/en/7.4.x/)
+- [`requests`](https://requests.readthedocs.io/en/latest/)
 
 ## Como clonar o projeto?
 
